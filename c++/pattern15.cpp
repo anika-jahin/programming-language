@@ -3,7 +3,8 @@
   *  
 *****
   *  
-  * */
+  *
+  Enter odd number*/
 
 #include<iostream>
 using namespace std;
