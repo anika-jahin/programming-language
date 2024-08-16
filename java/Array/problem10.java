@@ -37,10 +37,16 @@ public class problem10{
     static int[] sortingMethod2(int[] array){ //optimized way to sort the array
         int right=array.length-1;
         int left=0;
-        for(int i=0;i<array.length;i++){
+        while(left<right){
             if(array[left]==1 && array[right]==0){
                 swap(array,left,right);
                 left++;
+                right--;
+            }
+            if(array[left]==0){
+                left++;
+            }
+            if(array[right]==1){
                 right--;
             }
         }
