@@ -1,53 +1,51 @@
-public class Student{
-
+public class Student {
     String name;
-    String department;
-    int id;
-    int dailyEffortHours;
+    double avg;
+    public Student(String name){
+        this.name=name;
+    }
+    public Student(){
+        System.out.println("Hello default student");
+    }
 
-    public Student(String name,int id){
-        this.name=name;
-        this.id=id; 
-        this.department="CSE";
+    public double quizcalc(double n){
+         avg=n/3;
+        return avg;
     }
-    public void dailyEffort(int hour){
-        this.dailyEffortHours=hour;
-        System.out.println("Daily Effort: "+hour+" hour(s)");
+
+    public void printDetail(){
         
+        System.out.println("Your average quiz is"+"\n"+avg);
     }
-    public void printDetails(){
-        System.out.println("Name: "+name);
-        System.out.println("ID:"+id);
-        System.out.println("Department: "+department);
-        System.out.println("Daily Effort:"+dailyEffortHours+" hour(s)");
-        if(dailyEffortHours<=2){
-            System.out.println("Suggestion: Should give more effort!");
-        }else if(dailyEffortHours>2 &&dailyEffortHours<=4){
-            System.out.println("Suggestion: Keep up the good work");
-        }else{
-            System.out.println("Suggestion: Excellent! Now motivate others.");
-        }
-        
+
+    public double quizcalc(double n1,double n2){
+         avg=(n1+n2)/3;
+        return avg;
     }
-    public Student(String name,int id,String department){
-        this.name=name;
-        this.id=id;
-        this.department=department;
-       
+
+    public double quizcalc(double n1,double n2,double n3){
+         avg=(n1+n2+n3)/3;
+        return avg;
     }
+
+    public void printDetail(String name) {
+        System.out.println("Hello " + name);
+        System.out.println("Your average quiz score is: " + avg);
+    }
+    
     public static void main(String[] args) {
-        Student harry = new Student("Harry Potter", 123); 
-        harry.dailyEffort(3); 
-        harry.printDetails(); 
-        System.out.println("========================"); 
+        Student s1 = new Student();
+        s1.quizcalc(10);
+        System.out.println("--------------------------------");
+        s1.printDetail();
 
-        Student john = new Student("John Wick", 456, "BBA"); 
-        john.dailyEffort(2); 
-        john.printDetails(); 
-        System.out.println("========================"); 
-
-        Student naruto = new Student("Naruto Uzumaki", 777, "Ninja"); 
-        naruto.dailyEffort(6); 
-        naruto.printDetails(); 
+        Student s2 = new Student("Harry");
+        s2.quizcalc(10, 8);
+        System.out.println("--------------------------------");
+        s2.printDetail(s2.name);
+        Student s3 = new Student("Hermione");
+        s3.quizcalc(10, 9, 10);
+        System.out.println("--------------------------------");
+        s3.printDetail(s3.name);
     }
 }
